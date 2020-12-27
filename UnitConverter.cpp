@@ -109,6 +109,10 @@ int main() {
 					 << " kilometers"
 					 << endl;
 			}
+			else {
+				cout << "Incompatible Units"
+				     << endl;
+			}
 		}
 		
 		else if (unitType == "temperature") {
@@ -126,6 +130,10 @@ int main() {
 				cout << convertKelvin(data, units)
 					 << " degrees Kelvin"
 					 << endl;
+			}
+			else {
+				cout << "Incompatible Units"
+				     << endl;
 			}
 		}
 		
@@ -154,6 +162,10 @@ int main() {
 				cout << convertKG(data, units)
 					 << " kilograms"
 					 << endl;
+			}
+			else {
+				cout << "Incompatible Units"
+				     << endl;
 			}
 		}
 		
@@ -187,6 +199,10 @@ int main() {
 				cout << convertLiters(data, units)
 					 << " liters"
 					 << endl;
+			}
+			else {
+				cout << "Incompatible Units"
+				     << endl;
 			}
 		}
 		
