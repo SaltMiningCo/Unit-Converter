@@ -62,7 +62,7 @@ int main() {
 		else if (units == "oz" || units == "lb" || units == "t" || units == "g" || units == "kg") {
 			unitType = "mass";
 		}
-		else if (units == "fl oz" || units == "pt" || units == "qt" || units == "gal" || units == "ml" || units == "l") {
+		else if (units == "floz" || units == "pt" || units == "qt" || units == "gal" || units == "ml" || units == "l") {
 			unitType = "volume";
 		}
 		else {
@@ -158,7 +158,7 @@ int main() {
 		}
 		
 		else if (unitType == "volume") {
-			if (targetUnits == "fl oz") {
+			if (targetUnits == "floz") {
 				cout << convertFLOZ(data, units)
 					 << " fluid ounces"
 					 << endl;
@@ -180,7 +180,8 @@ int main() {
 			}
 			else if (targetUnits == "ml") {
 				cout << convertML(data, units)
-					 << " milliliters";
+					 << " milliliters"
+					 << endl;
 			}
 			else if (targetUnits == "l") {
 				cout << convertLiters(data, units)
@@ -236,7 +237,7 @@ double convertInches(double entry, string unit) {
 		return (entry*39.3701);
 	}
 	else {
-		return 0;
+		return entry;
 	}
 	
 }
@@ -261,7 +262,7 @@ double convertFeet(double entry, string unit) {
 		return (entry*3280.84);
 	}
 	else {
-		return 0;
+		return entry;
 	}
 }
 double convertYards(double entry, string unit) {
@@ -285,7 +286,7 @@ double convertYards(double entry, string unit) {
 		return (entry*1093.61);
 	}
 	else {
-		return 0;
+		return entry;
 	}
 
 }
@@ -309,7 +310,7 @@ double convertMiles(double entry, string unit) {
 	else if (unit == "km" || unit == "kilometers") {
 		return (entry*1.60934);
 	}
-	return 0;
+	return entry;
 }
 double convertCM(double entry, string unit) {
 	if (unit == "in" || unit == "inches") {
@@ -331,7 +332,7 @@ double convertCM(double entry, string unit) {
 	else if (unit == "km" || unit == "kilometers") {
 		return (entry*100000);
 	}
-	return 0;
+	return entry;
 }
 double convertM(double entry, string unit) {
 	if (unit == "in" || unit == "inches") {
@@ -353,7 +354,7 @@ double convertM(double entry, string unit) {
 	else if (unit == "km" || unit == "kilometers") {
 		return (entry*1000);
 	}
-	return 0;
+	return entry;
 }
 double convertKM(double entry, string unit) {
 	if (unit == "in" || unit == "inches") {
@@ -375,7 +376,7 @@ double convertKM(double entry, string unit) {
 	else if (unit == "m" || unit == "meters") {
 		return (entry/1000);
 	}
-	return 0;
+	return entry;
 }
 
 //Mass
@@ -392,37 +393,187 @@ double convertOunces(double entry, string unit) {
 	else if (unit == "kg") {
 		return (entry*35.274);
 	}
-	return 0;
+	return entry;
 }
 double convertPounds(double entry, string unit) {
-	if ()
+	if (unit == "oz") {
+		return (entry/16);
+	}
+	else if (unit == "t") {
+		return convertOunces(entry, "t")/16;
+	}
+	else if (unit == "g") {
+		return convertOunces(entry, "g")/16;
+	}
+	else if (unit == "kg") {
+		return convertOunces(entry, "kg")/16;
+	} 
+	else {
+		return entry;
+	}
 }
 double convertTons(double entry, string unit) {
-	return 0;
+	if (unit == "oz") {
+		return convertOunces(entry, "oz")/32000;
+	}
+	else if (unit == "lb") {
+		return convertOunces(entry, "lb")/2000;
+	}
+	else if (unit == "g") {
+		return convertOunces(entry, "g")/32000; //<---------------------------------------------------------_Fix this
+	}
+	else if (unit == "kg") {
+		return convertOunces(entry, "kg")/32000;
+	}
+	return entry;
 }
 double convertGrams(double entry, string unit) {
-	return 0;
+	if (unit == "oz") {
+		return entry/0.035274;
+	}
+	else if (unit == "lb") {
+		return entry/35.274;
+	}
+	else if (unit == "t") {
+		return convertOunces(entry, "t")/0.035274;
+	}
+	else if (unit == "kg") {
+		return entry*1000;
+	}
+	else {
+		return entry;
+	}
 }
 double convertKG(double entry, string unit) {
-	return 0;
+	if (unit == "oz") {
+		return convertGrams(entry, "oz")/1000;
+	}
+	else if (unit == "lb") {
+		return convertGrams(entry, "lb")/1000;
+	}
+	else if (unit == "t") {
+		return convertGrams(entry, "t")/1000;
+	}
+	else if (unit == "g") {
+		return entry/1000;
+	}
+	return entry;
 }
 
 //Volume
 double convertFLOZ(double entry, string unit) {
-	return 0;
+	if (unit == "pt") {
+		return entry*16;
+	}
+	else if (unit == "qt") {
+		return entry*32;
+	}
+	else if (unit == "gal") {
+		return entry*128;
+	}
+	else if (unit == "ml") {
+		return entry*0.03381413;
+	}
+	else if (unit == "l") {
+		return entry*33.81413;
+	}
+	return entry;
 }
 double convertPints(double entry, string unit) {
-	return 0;
+	if (unit == "floz") {
+		return entry/16;
+	}
+	else if (unit == "qt") {
+		return entry*2;
+	}
+	else if (unit == "gal") {
+		return entry*8;
+	}
+	else if (unit == "ml") {
+		return convertFLOZ(entry, "ml")/16;
+	}
+	else if (unit == "l") {
+		return convertFLOZ(entry, "l")/16;
+	}
+	else {
+		return entry;
+	}
 }
 double convertQuarts(double entry, string unit) {
-	return 0;
+	if (unit == "floz") {
+		return entry/32;
+    }
+	else if (unit == "pt") {
+		return entry/2;
+    }
+	else if (unit == "gal") {
+		return entry*4;
+    }
+	else if (unit == "ml") {
+		return convertFLOZ(entry, "ml")/32;
+	}
+	else if (unit == "l") {
+		return convertFLOZ(entry, "l")/32;
+    }
+	else {
+		return entry;
+    }	
 }
 double convertGallons(double entry, string unit) {
-	return 0;
+	if (unit == "floz") {
+		return entry/128;
+	}
+	else if (unit == "pt") {
+		return entry/8;
+	}
+	else if (unit == "qt") {
+		return entry/4;
+	}
+	else if (unit == "ml") {
+		return convertFLOZ(entry, "ml")/128;
+	}
+	else if (unit == "l") {
+		return convertFLOZ(entry, "l")/128;
+	}
+	else {
+		return entry;
+	}	
 }
 double convertML(double entry, string unit) {
-	return 0;
+	if (unit == "floz") {
+		return entry/0.03381413;
+	}
+	else if (unit == "pt") {
+		return convertFLOZ(entry, "pt")/0.03381413;
+	}
+	else if (unit == "qt") {
+		return convertFLOZ(entry, "qt")/0.03381413;
+	}
+	else if (unit == "gal") {
+		return convertFLOZ(entry, "gal")/0.03381413;
+	}
+	else if (unit == "l") {
+		return entry*1000;
+	}
+	else {
+		return entry;
+	}
 }
 double convertLiters(double entry, string unit) {
-	return 0;
+	if (unit == "floz") {
+		return entry/33.81413;
+	}
+	else if (unit == "pt") {
+		return convertFLOZ(entry, "pt")/33.81413;
+	}
+	else if (unit == "qt") {
+		return convertFLOZ(entry, "qt")/33.81413;
+	}
+	else if (unit == "gal") {
+		return convertFLOZ(entry, "gal")/33.81413;
+	}
+	else if (unit == "ml") {
+		return entry/1000;
+	}
+	return entry;
 }
