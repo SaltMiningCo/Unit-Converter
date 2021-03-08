@@ -11,5 +11,5 @@ The currently acceptable units for conversion are:
 - Yards
 - Miles
 - Millimeters
-- Meters
+- Centimeters
 - 
