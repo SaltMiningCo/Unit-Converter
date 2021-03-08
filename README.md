@@ -19,4 +19,10 @@ The currently acceptable units for conversion are:
 - Tons
 - Grams
 - Kilograms
-+ 
++ (Volume)
+- Fluid Ounces
+- Pints
+- Quarts
+- Gallons
+- Milliliters
+- Liters
