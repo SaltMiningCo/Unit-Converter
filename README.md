@@ -10,6 +10,13 @@ The currently acceptable units for conversion are:
 - Feet
 - Yards
 - Miles
-- Millimeters
 - Centimeters
-- 
+- Meters
+- Kilometers
++ (Mass)
+- Ounces
+- Pounds
+- Tons
+- Grams
+- Kilograms
++ 
