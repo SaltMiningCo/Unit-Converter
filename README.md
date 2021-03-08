@@ -1,11 +1,11 @@
 # Unit-Converter
 This is a very simple application that can convert units across the metric and imperial systems
 The currently acceptable units for conversion are:
-\n(Temperature)
++ (Temperature)
 - Kelvin
 - Celsius
 - Fahrenheit
-(Length)
++ (Length)
 - Inches
 - Feet
 - Yards
